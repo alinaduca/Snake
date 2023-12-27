@@ -36,5 +36,3 @@ class Snake:
     def add_block(self):
         self.new_block = True
 
-    # def check_fail(self):
-
