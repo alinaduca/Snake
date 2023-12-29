@@ -6,9 +6,9 @@ class Snake:
     def __init__(self, cells):
         self.body = [Vector2(14, 10), Vector2(15, 10), Vector2(16, 10)]
         self.direction = Vector2(0, 0)
+        self.cells = cells
         self.new_block = False
         self.is_moving = False
-        self.cells = cells
 
         self.head = None
         self.head_up = pygame.image.load('Images/head_up.png').convert_alpha()

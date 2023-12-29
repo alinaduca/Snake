@@ -5,7 +5,7 @@ from Snake import Snake
 from Obstacle import Obstacle
 
 light_green = (175, 215, 70)
-text_color = (56, 74, 12)
+dark_text_color = (56, 74, 12)
 light_text_color = (200, 200, 50)
 
 
@@ -15,13 +15,13 @@ class Game:
         self.current_score = 0
         self.record = 0
         self.snake = Snake(cells)
-        self.fruit = Fruit(cells, self.snake.body)
+        self.fruit = Fruit(cells, self.snake.body, [])
         self.size = cells
         self.size_of_a_cell = size_of_a_cell
         self.surface = surface
         self.game_over = False
-        self.end = False
         self.obstacles = None
+        self.end = False
 
     def update(self):
         if not self.game_over and self.snake.get_is_moving():
@@ -32,6 +32,8 @@ class Game:
 
     def set_obstacles(self, coordinates):
         self.obstacles = Obstacle(coordinates)
+        if self.fruit.pos in self.obstacles.positions:
+            self.fruit.randomize(self.snake.body, self.obstacles.positions)
 
     def draw(self):
         if self.game_over:
@@ -50,7 +52,7 @@ class Game:
     def check_collision_with_apple(self):
         if self.fruit.pos == self.snake.body[0]:
             self.snake.add_block()
-            self.fruit.randomize(self.snake.body)
+            self.fruit.randomize(self.snake.body, self.obstacles.positions)
             self.snake.play_eating_sound()
 
     def check_collision_with_obstacle(self):
@@ -88,7 +90,7 @@ class Game:
         font = pygame.font.Font(None, 30)
         self.current_score = (len(self.snake.body) - 3) * 10
         score_text = ": " + str(self.current_score)
-        score_surface = font.render(score_text, True, text_color)
+        score_surface = font.render(score_text, True, dark_text_color)
         score_x = int(self.size_of_a_cell * self.size - 60)
         score_y = int(self.size_of_a_cell * self.size - 40)
         score_rect = score_surface.get_rect(center=(score_x, score_y))
@@ -100,12 +102,12 @@ class Game:
         pygame.draw.rect(self.surface, (167, 209, 61), bg_rect)
         self.surface.blit(score_surface, score_rect)
         self.surface.blit(apple, apple_rect)
-        pygame.draw.rect(self.surface, text_color, bg_rect, 2)
+        pygame.draw.rect(self.surface, dark_text_color, bg_rect, 2)
 
     def draw_game_over(self):
         font = pygame.font.Font(None, 35)
         current_score_text = "Score: " + str(self.current_score)
-        current_score_surface = font.render(current_score_text, True, text_color)
+        current_score_surface = font.render(current_score_text, True, dark_text_color)
         current_score_x = int(self.size_of_a_cell * self.size / 2)
         current_score_y = int(self.size_of_a_cell * self.size / 7 * 3)
         current_score_rect = current_score_surface.get_rect(midbottom=(current_score_x, current_score_y))
@@ -114,9 +116,9 @@ class Game:
         yes_text = "y - Yes"
         no_text = "n - No"
         font2 = pygame.font.Font(None, 28)
-        end_session_surface = font2.render(end_session_text, True, text_color)
-        yes_surface = font2.render(yes_text, True, text_color)
-        no_surface = font2.render(no_text, True, text_color)
+        end_session_surface = font2.render(end_session_text, True, dark_text_color)
+        yes_surface = font2.render(yes_text, True, dark_text_color)
+        no_surface = font2.render(no_text, True, dark_text_color)
         end_session_x = int(self.size_of_a_cell * self.size / 2)
         end_session_y = int(self.size_of_a_cell * self.size / 7 * 4)
         end_session_rect = end_session_surface.get_rect(midtop=(end_session_x, end_session_y))
@@ -132,7 +134,7 @@ class Game:
         self.surface.blit(end_session_surface, end_session_rect)
         self.surface.blit(yes_surface, yes_rect)
         self.surface.blit(no_surface, no_rect)
-        pygame.draw.rect(self.surface, text_color, frame_rect, 2)
+        pygame.draw.rect(self.surface, dark_text_color, frame_rect, 2)
 
     def continue_session(self):
         if self.game_over:
