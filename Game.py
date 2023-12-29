@@ -2,6 +2,7 @@ import pygame
 import sys
 from Fruit import Fruit
 from Snake import Snake
+from Obstacle import Obstacle
 
 light_green = (175, 215, 70)
 text_color = (56, 74, 12)
@@ -15,6 +16,7 @@ class Game:
         pygame.mixer.pre_init(44100, -16, 2, 512)
         self.snake = Snake(cell_number)
         self.fruit = Fruit(cell_number, self.snake.body)
+        self.obstacle = Obstacle()
         self.size = cell_number
         self.cell_size = cell_size
         self.surface = surface
@@ -24,7 +26,7 @@ class Game:
     def update(self):
         if not self.game_over and self.snake.get_is_moving():
             self.snake.move()
-            self.check_collision()
+            self.check_collision_with_apple()
             self.check_fail()
 
     def draw(self):
@@ -36,18 +38,19 @@ class Game:
         else:
             self.surface.fill(light_green)
             self.draw_grass()
+            self.obstacle.draw(self.cell_size, self.surface)
             self.fruit.draw(self.cell_size, self.surface)
             self.snake.draw(self.cell_size, self.surface)
             self.draw_score()
 
-    def check_collision(self):
+    def check_collision_with_apple(self):
         if self.fruit.pos == self.snake.body[0]:
             self.snake.add_block()
             self.fruit.randomize(self.snake.body)
             self.snake.play_eating_sound()
 
     def check_fail(self):
-        for block in self.snake.body[1:]:
+        for block in self.snake.body[2:]:
             if block == self.snake.body[0]:
                 self.game_over = True
                 if self.record < self.current_score:
