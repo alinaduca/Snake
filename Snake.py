@@ -7,6 +7,7 @@ class Snake:
         self.body = [Vector2(14, 10), Vector2(15, 10), Vector2(16, 10)]
         self.direction = Vector2(0, 0)
         self.new_block = False
+        self.is_moving = False
         self.cell_number = cell_number
 
         self.head_up = pygame.image.load('Images/head_up.png').convert_alpha()
@@ -66,7 +67,6 @@ class Snake:
                     elif previous_block.x == 1 and next_block.y == -1 or previous_block.y == -1 and next_block.x == 1:
                         surface.blit(self.body_br, block_rectangle)
 
-
     def move(self):
         if self.new_block:
             body_copy = self.body[:]
@@ -85,6 +85,7 @@ class Snake:
         self.body = body_copy[:]
 
     def change_direction(self, new_direction):
+        self.is_moving = True
         old_direction = self.direction
         match new_direction:
             case 'UP':
@@ -131,4 +132,8 @@ class Snake:
     def reset(self):
         self.body = [Vector2(14, 10), Vector2(15, 10), Vector2(16, 10)]
         self.direction = Vector2(0, 0)
+        self.is_moving = False
         self.new_block = False
+
+    def get_is_moving(self):
+        return self.is_moving
