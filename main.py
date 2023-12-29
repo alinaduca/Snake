@@ -32,6 +32,10 @@ def init_table():
                     game.continue_session()
                 if event.key == pygame.K_y:
                     game.end_session()
+                if event.key == pygame.K_s:
+                    game.start_session()
+                if event.key == pygame.K_q:
+                    game.quit()
         game.draw()
         pygame.display.update()
         clock.tick(60)  # ruleaza cu max 60 frame-uri pe secunda

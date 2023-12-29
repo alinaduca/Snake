@@ -1,4 +1,5 @@
 import pygame
+import sys
 from Fruit import Fruit
 from Snake import Snake
 
@@ -137,3 +138,31 @@ class Game:
         record_surface = font.render(record_text, True, light_text_color)
         record_rect = record_surface.get_rect(center=(record_x, record_y))
         self.surface.blit(record_surface, record_rect)
+
+        session_text = "Starting new session?"
+        start_text = "s - Start new session"
+        quit_text = "q - Quit"
+        font1 = pygame.font.Font(None, 28)
+        start_session_surface = font1.render(session_text, True, light_text_color)
+        yes_surface = font1.render(start_text, True, light_text_color)
+        quit_surface = font1.render(quit_text, True, light_text_color)
+        end_session_x = int(self.cell_size * self.size / 2)
+        end_session_y = int(self.cell_size * self.size / 7 * 4)
+        start_session_rect = start_session_surface.get_rect(midtop=(end_session_x, end_session_y))
+        yes_rect = yes_surface.get_rect(midtop=(end_session_x, start_session_rect.bottom))
+        quit_rect = quit_surface.get_rect(midtop=(end_session_x, yes_rect.bottom))
+
+        self.surface.blit(start_session_surface, start_session_rect)
+        self.surface.blit(yes_surface, yes_rect)
+        self.surface.blit(quit_surface, quit_rect)
+
+    def start_session(self):
+        self.end = False
+        self.game_over = False
+        self.current_score = 0
+        self.record = 0
+        self.snake.reset()
+
+    def quit(self):
+        pygame.quit()
+        sys.exit()
