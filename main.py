@@ -28,6 +28,10 @@ def init_table():
                     game.snake.change_direction('RIGHT')
                 if event.key == pygame.K_LEFT:
                     game.snake.change_direction('LEFT')
+                if event.key == pygame.K_n:
+                    game.continue_session()
+                if event.key == pygame.K_y:
+                    game.end_session()
         game.draw()
         pygame.display.update()
         clock.tick(60)  # ruleaza cu max 60 frame-uri pe secunda
