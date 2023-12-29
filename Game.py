@@ -27,6 +27,7 @@ class Game:
         if not self.game_over and self.snake.get_is_moving():
             self.snake.move()
             self.check_collision_with_apple()
+            self.check_collision_with_obstacle()
             self.check_fail()
 
     def set_obstacles(self, coordinates):
@@ -40,7 +41,7 @@ class Game:
                 self.draw_end_session()
         else:
             self.surface.fill(light_green)
-            self.draw_grass()
+            self.draw_darker_squares()
             self.obstacles.draw(self.size_of_a_cell, self.surface)
             self.fruit.draw(self.size_of_a_cell, self.surface)
             self.snake.draw(self.size_of_a_cell, self.surface)
@@ -52,6 +53,14 @@ class Game:
             self.fruit.randomize(self.snake.body)
             self.snake.play_eating_sound()
 
+    def check_collision_with_obstacle(self):
+        if self.obstacles is not None:
+            for pos in self.obstacles.positions:
+                if pos == self.snake.body[0]:
+                    self.game_over = True
+                    if self.record < self.current_score:
+                        self.record = self.current_score
+
     def check_fail(self):
         for block in self.snake.body[2:]:
             if block == self.snake.body[0]:
@@ -59,7 +68,7 @@ class Game:
                 if self.record < self.current_score:
                     self.record = self.current_score
 
-    def draw_grass(self):
+    def draw_darker_squares(self):
         grass_color = (167, 209, 61)
         for row in range(self.size):
             if row % 2 == 0:
