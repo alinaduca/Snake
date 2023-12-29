@@ -3,12 +3,12 @@ from pygame.math import Vector2
 
 
 class Snake:
-    def __init__(self, cell_number):
+    def __init__(self, cells):
         self.body = [Vector2(14, 10), Vector2(15, 10), Vector2(16, 10)]
         self.direction = Vector2(0, 0)
         self.new_block = False
         self.is_moving = False
-        self.cell_number = cell_number
+        self.cells = cells
 
         self.head_up = pygame.image.load('Images/head_up.png').convert_alpha()
         self.head_down = pygame.image.load('Images/head_down.png').convert_alpha()
@@ -49,13 +49,13 @@ class Snake:
                 elif previous_block.y == next_block.y:
                     surface.blit(self.body_horizontal, block_rectangle)
                 else:
-                    if abs(previous_block.x) >= self.cell_number - 1:
+                    if abs(previous_block.x) >= self.cells - 1:
                         previous_block.x = (-1) ** (previous_block.x > 0)
-                    elif abs(previous_block.y) >= self.cell_number - 1:
+                    elif abs(previous_block.y) >= self.cells - 1:
                         previous_block.y = (-1) ** (previous_block.y > 0)
-                    elif abs(next_block.x) >= self.cell_number - 1:
+                    elif abs(next_block.x) >= self.cells - 1:
                         next_block.x = (-1) ** (next_block.x > 0)
-                    elif abs(next_block.y) >= self.cell_number - 1:
+                    elif abs(next_block.y) >= self.cells - 1:
                         next_block.y = (-1) ** (next_block.y > 0)
 
                     if previous_block.x == -1 and next_block.y == -1 or previous_block.y == -1 and next_block.x == -1:
@@ -75,13 +75,13 @@ class Snake:
             body_copy = self.body[:-1]
         body_copy.insert(0, body_copy[0] + self.direction)
         if not 0 <= body_copy[0].y:
-            body_copy[0].y = self.cell_number - 1
-        if not body_copy[0].x < self.cell_number:
+            body_copy[0].y = self.cells - 1
+        if not body_copy[0].x < self.cells:
             body_copy[0].x = 0
-        if not body_copy[0].y < self.cell_number:
+        if not body_copy[0].y < self.cells:
             body_copy[0].y = 0
         if not 0 <= body_copy[0].x:
-            body_copy[0].x = self.cell_number - 1
+            body_copy[0].x = self.cells - 1
         self.body = body_copy[:]
 
     def change_direction(self, new_direction):

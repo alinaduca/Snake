@@ -4,8 +4,8 @@ from pygame.math import Vector2
 
 
 class Fruit:
-    def __init__(self, cell_number, snake_body):
-        self.max_pos = cell_number - 1
+    def __init__(self, cells, snake_body):
+        self.max_pos = cells - 1
         self.randomize(snake_body)
         self.apple = pygame.image.load('Images/apple.png').convert_alpha()
 

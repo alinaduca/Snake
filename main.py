@@ -1,17 +1,35 @@
 import pygame
+import json
 import sys
 from Game import Game
 
 
-def init_table():
+def read_json(json_file):
+    try:
+        with open(json_file, 'r') as file:
+            json_data = json.load(file)
+            if not json_data:
+                raise ValueError("The JSON file is empty.")
+            return json_data
+    except FileNotFoundError:
+        print('Error: File ' + json_file + ' not found.')
+        return None
+    except json.JSONDecodeError:
+        print("Error: Unable to decode JSON in file " + json_file + ".")
+        return None
+    except ValueError as e:
+        print("Error: " + str(e))
+        return None
+
+
+def init_table(dict):
+    print(dict)
     pygame.init()
-    cell_size = 30
-    cell_number = 20
-    screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
+    screen = pygame.display.set_mode((dict['cells'] * dict['size_of_a_cell'], dict['cells'] * dict['size_of_a_cell']))
     clock = pygame.time.Clock()
     SCREEN_UPDATE = pygame.USEREVENT
     pygame.time.set_timer(SCREEN_UPDATE, 120)
-    game = Game(cell_number, cell_size, screen)
+    game = Game(dict['cells'], dict['size_of_a_cell'], screen)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -42,4 +60,9 @@ def init_table():
 
 
 if __name__ == "__main__":
-    init_table()
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <json_file>")
+    else:
+        data = read_json(sys.argv[1])
+        if data is not None:
+            init_table(data)

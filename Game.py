@@ -10,15 +10,15 @@ light_text_color = (200, 200, 50)
 
 
 class Game:
-    def __init__(self, cell_number, cell_size, surface):
+    def __init__(self, cells, size_of_a_cell, surface):
         self.current_score = 0
         self.record = 0
         pygame.mixer.pre_init(44100, -16, 2, 512)
-        self.snake = Snake(cell_number)
-        self.fruit = Fruit(cell_number, self.snake.body)
+        self.snake = Snake(cells)
+        self.fruit = Fruit(cells, self.snake.body)
         self.obstacle = Obstacle()
-        self.size = cell_number
-        self.cell_size = cell_size
+        self.size = cells
+        self.size_of_a_cell = size_of_a_cell
         self.surface = surface
         self.game_over = False
         self.end = False
@@ -38,9 +38,9 @@ class Game:
         else:
             self.surface.fill(light_green)
             self.draw_grass()
-            self.obstacle.draw(self.cell_size, self.surface)
-            self.fruit.draw(self.cell_size, self.surface)
-            self.snake.draw(self.cell_size, self.surface)
+            self.obstacle.draw(self.size_of_a_cell, self.surface)
+            self.fruit.draw(self.size_of_a_cell, self.surface)
+            self.snake.draw(self.size_of_a_cell, self.surface)
             self.draw_score()
 
     def check_collision_with_apple(self):
@@ -62,14 +62,14 @@ class Game:
             if row % 2 == 0:
                 for col in range(self.size):
                     if col % 2 == 0:
-                        grass_rect = pygame.Rect(col * self.cell_size, row * self.cell_size, self.cell_size,
-                                                 self.cell_size)
+                        grass_rect = pygame.Rect(col * self.size_of_a_cell, row * self.size_of_a_cell, self.size_of_a_cell,
+                                                 self.size_of_a_cell)
                         pygame.draw.rect(self.surface, grass_color, grass_rect)
             else:
                 for col in range(self.size):
                     if col % 2 != 0:
-                        grass_rect = pygame.Rect(col * self.cell_size, row * self.cell_size, self.cell_size,
-                                                 self.cell_size)
+                        grass_rect = pygame.Rect(col * self.size_of_a_cell, row * self.size_of_a_cell, self.size_of_a_cell,
+                                                 self.size_of_a_cell)
                         pygame.draw.rect(self.surface, grass_color, grass_rect)
 
     def draw_score(self):
@@ -77,8 +77,8 @@ class Game:
         self.current_score = (len(self.snake.body) - 3) * 10
         score_text = ": " + str(self.current_score)
         score_surface = font.render(score_text, True, text_color)
-        score_x = int(self.cell_size * self.size - 60)
-        score_y = int(self.cell_size * self.size - 40)
+        score_x = int(self.size_of_a_cell * self.size - 60)
+        score_y = int(self.size_of_a_cell * self.size - 40)
         score_rect = score_surface.get_rect(center=(score_x, score_y))
         apple = self.fruit.get_apple()
         apple_rect = apple.get_rect(midright=(score_rect.left, score_rect.centery))
@@ -94,8 +94,8 @@ class Game:
         font = pygame.font.Font(None, 35)
         current_score_text = "Score: " + str(self.current_score)
         current_score_surface = font.render(current_score_text, True, text_color)
-        current_score_x = int(self.cell_size * self.size / 2)
-        current_score_y = int(self.cell_size * self.size / 7 * 3)
+        current_score_x = int(self.size_of_a_cell * self.size / 2)
+        current_score_y = int(self.size_of_a_cell * self.size / 7 * 3)
         current_score_rect = current_score_surface.get_rect(midbottom=(current_score_x, current_score_y))
 
         end_session_text = "End session?"
@@ -105,8 +105,8 @@ class Game:
         end_session_surface = font2.render(end_session_text, True, text_color)
         yes_surface = font2.render(yes_text, True, text_color)
         no_surface = font2.render(no_text, True, text_color)
-        end_session_x = int(self.cell_size * self.size / 2)
-        end_session_y = int(self.cell_size * self.size / 7 * 4)
+        end_session_x = int(self.size_of_a_cell * self.size / 2)
+        end_session_y = int(self.size_of_a_cell * self.size / 7 * 4)
         end_session_rect = end_session_surface.get_rect(midtop=(end_session_x, end_session_y))
         yes_rect = yes_surface.get_rect(midtop=(end_session_x, end_session_rect.bottom))
         no_rect = no_surface.get_rect(midtop=(end_session_x, yes_rect.bottom))
@@ -135,8 +135,8 @@ class Game:
     def draw_end_session(self):
         self.surface.fill((0, 0, 0))
         font = pygame.font.Font(None, 42)
-        record_x = int(self.cell_size * self.size / 2)
-        record_y = int(self.cell_size * self.size / 2)
+        record_x = int(self.size_of_a_cell * self.size / 2)
+        record_y = int(self.size_of_a_cell * self.size / 2)
         record_text = "High Score: " + str(self.record)
         record_surface = font.render(record_text, True, light_text_color)
         record_rect = record_surface.get_rect(center=(record_x, record_y))
@@ -149,8 +149,8 @@ class Game:
         start_session_surface = font1.render(session_text, True, light_text_color)
         yes_surface = font1.render(start_text, True, light_text_color)
         quit_surface = font1.render(quit_text, True, light_text_color)
-        end_session_x = int(self.cell_size * self.size / 2)
-        end_session_y = int(self.cell_size * self.size / 7 * 4)
+        end_session_x = int(self.size_of_a_cell * self.size / 2)
+        end_session_y = int(self.size_of_a_cell * self.size / 7 * 4)
         start_session_rect = start_session_surface.get_rect(midtop=(end_session_x, end_session_y))
         yes_rect = yes_surface.get_rect(midtop=(end_session_x, start_session_rect.bottom))
         quit_rect = quit_surface.get_rect(midtop=(end_session_x, yes_rect.bottom))
