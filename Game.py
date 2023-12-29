@@ -11,23 +11,26 @@ light_text_color = (200, 200, 50)
 
 class Game:
     def __init__(self, cells, size_of_a_cell, surface):
+        pygame.mixer.pre_init(44100, -16, 2, 512)
         self.current_score = 0
         self.record = 0
-        pygame.mixer.pre_init(44100, -16, 2, 512)
         self.snake = Snake(cells)
         self.fruit = Fruit(cells, self.snake.body)
-        self.obstacle = Obstacle()
         self.size = cells
         self.size_of_a_cell = size_of_a_cell
         self.surface = surface
         self.game_over = False
         self.end = False
+        self.obstacles = None
 
     def update(self):
         if not self.game_over and self.snake.get_is_moving():
             self.snake.move()
             self.check_collision_with_apple()
             self.check_fail()
+
+    def set_obstacles(self, coordinates):
+        self.obstacles = Obstacle(coordinates)
 
     def draw(self):
         if self.game_over:
@@ -38,7 +41,7 @@ class Game:
         else:
             self.surface.fill(light_green)
             self.draw_grass()
-            self.obstacle.draw(self.size_of_a_cell, self.surface)
+            self.obstacles.draw(self.size_of_a_cell, self.surface)
             self.fruit.draw(self.size_of_a_cell, self.surface)
             self.snake.draw(self.size_of_a_cell, self.surface)
             self.draw_score()
@@ -60,17 +63,17 @@ class Game:
         grass_color = (167, 209, 61)
         for row in range(self.size):
             if row % 2 == 0:
-                for col in range(self.size):
-                    if col % 2 == 0:
-                        grass_rect = pygame.Rect(col * self.size_of_a_cell, row * self.size_of_a_cell, self.size_of_a_cell,
-                                                 self.size_of_a_cell)
-                        pygame.draw.rect(self.surface, grass_color, grass_rect)
+                for column in range(self.size):
+                    if column % 2 == 0:
+                        grass_rectangle = pygame.Rect(column * self.size_of_a_cell, row * self.size_of_a_cell,
+                                                      self.size_of_a_cell, self.size_of_a_cell)
+                        pygame.draw.rect(self.surface, grass_color, grass_rectangle)
             else:
-                for col in range(self.size):
-                    if col % 2 != 0:
-                        grass_rect = pygame.Rect(col * self.size_of_a_cell, row * self.size_of_a_cell, self.size_of_a_cell,
-                                                 self.size_of_a_cell)
-                        pygame.draw.rect(self.surface, grass_color, grass_rect)
+                for column in range(self.size):
+                    if column % 2 != 0:
+                        grass_rectangle = pygame.Rect(column * self.size_of_a_cell, row * self.size_of_a_cell,
+                                                      self.size_of_a_cell, self.size_of_a_cell)
+                        pygame.draw.rect(self.surface, grass_color, grass_rectangle)
 
     def draw_score(self):
         font = pygame.font.Font(None, 30)
@@ -160,12 +163,14 @@ class Game:
         self.surface.blit(quit_surface, quit_rect)
 
     def start_session(self):
-        self.end = False
-        self.game_over = False
-        self.current_score = 0
-        self.record = 0
-        self.snake.reset()
+        if self.end:
+            self.end = False
+            self.game_over = False
+            self.current_score = 0
+            self.record = 0
+            self.snake.reset()
 
     def quit(self):
-        pygame.quit()
-        sys.exit()
+        if self.end:
+            pygame.quit()
+            sys.exit()

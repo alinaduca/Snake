@@ -10,11 +10,13 @@ class Snake:
         self.is_moving = False
         self.cells = cells
 
+        self.head = None
         self.head_up = pygame.image.load('Images/head_up.png').convert_alpha()
         self.head_down = pygame.image.load('Images/head_down.png').convert_alpha()
         self.head_left = pygame.image.load('Images/head_left.png').convert_alpha()
         self.head_right = pygame.image.load('Images/head_right.png').convert_alpha()
 
+        self.tail = None
         self.tail_up = pygame.image.load('Images/tail_up.png').convert_alpha()
         self.tail_down = pygame.image.load('Images/tail_down.png').convert_alpha()
         self.tail_left = pygame.image.load('Images/tail_left.png').convert_alpha()
@@ -105,25 +107,25 @@ class Snake:
         self.new_block = True
 
     def update_head_graphics(self):
-        dir = self.body[0] - self.body[1]
-        if dir == Vector2(0, 1):
+        current_direction = self.body[0] - self.body[1]
+        if current_direction == Vector2(0, 1):
             self.head = self.head_down
-        elif dir == Vector2(0, -1):
+        elif current_direction == Vector2(0, -1):
             self.head = self.head_up
-        elif dir == Vector2(1, 0):
+        elif current_direction == Vector2(1, 0):
             self.head = self.head_right
-        elif dir == Vector2(-1, 0):
+        elif current_direction == Vector2(-1, 0):
             self.head = self.head_left
 
     def update_tail_graphics(self):
-        dir = self.body[-2] - self.body[-1]
-        if dir == Vector2(0, 1):
+        current_direction = self.body[-2] - self.body[-1]
+        if current_direction == Vector2(0, 1):
             self.tail = self.tail_down
-        elif dir == Vector2(0, -1):
+        elif current_direction == Vector2(0, -1):
             self.tail = self.tail_up
-        elif dir == Vector2(1, 0):
+        elif current_direction == Vector2(1, 0):
             self.tail = self.tail_right
-        elif dir == Vector2(-1, 0):
+        elif current_direction == Vector2(-1, 0):
             self.tail = self.tail_left
 
     def play_eating_sound(self):

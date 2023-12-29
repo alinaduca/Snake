@@ -22,14 +22,16 @@ def read_json(json_file):
         return None
 
 
-def init_table(dict):
-    print(dict)
+def init_table(dictionary):
     pygame.init()
-    screen = pygame.display.set_mode((dict['cells'] * dict['size_of_a_cell'], dict['cells'] * dict['size_of_a_cell']))
+    screen = pygame.display.set_mode((dictionary['cells'] * dictionary['size_of_a_cell'],
+                                      dictionary['cells'] * dictionary['size_of_a_cell']))
     clock = pygame.time.Clock()
     SCREEN_UPDATE = pygame.USEREVENT
     pygame.time.set_timer(SCREEN_UPDATE, 120)
-    game = Game(dict['cells'], dict['size_of_a_cell'], screen)
+    game = Game(dictionary['cells'], dictionary['size_of_a_cell'], screen)
+    if 'obstacles' in dictionary:
+        game.set_obstacles(dictionary['obstacles'])
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
