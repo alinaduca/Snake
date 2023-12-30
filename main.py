@@ -26,6 +26,7 @@ def init_table(dictionary):
     pygame.init()
     screen = pygame.display.set_mode((dictionary['cells'] * dictionary['size_of_a_cell'],
                                       dictionary['cells'] * dictionary['size_of_a_cell']))
+    pygame.display.set_caption("Snake")
     clock = pygame.time.Clock()
     SCREEN_UPDATE = pygame.USEREVENT
     pygame.time.set_timer(SCREEN_UPDATE, 120)

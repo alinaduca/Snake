@@ -15,12 +15,12 @@ class Game:
         self.current_score = 0
         self.record = 0
         self.snake = Snake(cells)
+        self.obstacles = Obstacle([])
         self.fruit = Fruit(cells, self.snake.body, [])
         self.size = cells
         self.size_of_a_cell = size_of_a_cell
         self.surface = surface
         self.game_over = False
-        self.obstacles = None
         self.end = False
 
     def update(self):
