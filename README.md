@@ -42,7 +42,7 @@ Rulat în acest mod, interfața va fi următoarea:
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Bineînțeles că userul poate alege valori diferite pentru `cells`, `size_of_a_cell` sau pentru coordonatele obstacolelor, iar în cazul în care acesta va stabili pentru variabila `size_of_a_cell` o valoare diferită de 30, în locul imaginilor vor fi afișate dreptunghiuri având culoarea componentelor inițiale.
+Bineînțeles că utilizatorul poate alege valori diferite pentru `cells`, `size_of_a_cell` sau pentru coordonatele obstacolelor, iar în cazul în care acesta va stabili pentru variabila `size_of_a_cell` o valoare diferită de 30, în locul imaginilor vor fi afișate dreptunghiuri având culoarea componentelor inițiale.
 
 Un exemplu în acest sens poate fi urmărit rulând următoarea comandă în terminal:
 ```
@@ -81,7 +81,7 @@ Pentru al doilea caz discutat mai sus, am folosit următoarele culori:
 
 ## Regulile și modul de a juca 
 
-Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumulează prin mâncatul a cât mai multe fructe (reprezentate aici prin mere) de către șarpe. Cu cât șarpele mănâncă mai multe mere, cu atât corpul lui devine mai lung. Controlul șarpelui se realizează prin folosirea tastelor direcționale (sus, jos, stânga, dreapte).
+Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumulează prin mâncatul a cât mai multe fructe (reprezentate aici prin mere) de către șarpe. Cu cât șarpele mănâncă mai multe fructe, cu atât corpul lui devine mai lung. Controlul șarpelui se realizează prin folosirea tastelor direcționale (sus, jos, stânga, dreapte).
 
 O partidă de joc se termină în momentul în care:
 - șarpele se ciocnește de propriul corp
