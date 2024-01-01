@@ -1,5 +1,6 @@
 import pygame
 from pygame.math import Vector2
+snake_color = (106, 158, 104)
 
 
 class Snake:
@@ -33,41 +34,51 @@ class Snake:
         self.eating_sound = pygame.mixer.Sound('Sounds/eating.mp3')
 
     def draw(self, size, surface):
-        self.update_head_graphics()
-        self.update_tail_graphics()
-        for index, block in enumerate(self.body):
-            x_pos = int(block.x * size)
-            y_pos = int(block.y * size)
-            block_rectangle = pygame.Rect(x_pos, y_pos, size, size)
-            if index == 0:
-                surface.blit(self.head, block_rectangle)
-            elif index == len(self.body) - 1:
-                surface.blit(self.tail, block_rectangle)
-            else:
-                previous_block = self.body[index + 1] - block
-                next_block = self.body[index - 1] - block
-                if previous_block.x == next_block.x:
-                    surface.blit(self.body_vertical, block_rectangle)
-                elif previous_block.y == next_block.y:
-                    surface.blit(self.body_horizontal, block_rectangle)
+        if size != 30:
+            for block in self.body:
+                x_pos = int(block.x * size)
+                y_pos = int(block.y * size)
+                block_rectangle = pygame.Rect(x_pos, y_pos, size, size)
+                pygame.draw.rect(surface, snake_color, block_rectangle)
+        else:
+            self.update_head_graphics()
+            self.update_tail_graphics()
+            for index, block in enumerate(self.body):
+                x_pos = int(block.x * size)
+                y_pos = int(block.y * size)
+                block_rectangle = pygame.Rect(x_pos, y_pos, size, size)
+                if index == 0:
+                    surface.blit(self.head, block_rectangle)
+                elif index == len(self.body) - 1:
+                    surface.blit(self.tail, block_rectangle)
                 else:
-                    if abs(previous_block.x) >= self.cells - 1:
-                        previous_block.x = (-1) ** (previous_block.x > 0)
-                    elif abs(previous_block.y) >= self.cells - 1:
-                        previous_block.y = (-1) ** (previous_block.y > 0)
-                    elif abs(next_block.x) >= self.cells - 1:
-                        next_block.x = (-1) ** (next_block.x > 0)
-                    elif abs(next_block.y) >= self.cells - 1:
-                        next_block.y = (-1) ** (next_block.y > 0)
+                    previous_block = self.body[index + 1] - block
+                    next_block = self.body[index - 1] - block
+                    if previous_block.x == next_block.x:
+                        surface.blit(self.body_vertical, block_rectangle)
+                    elif previous_block.y == next_block.y:
+                        surface.blit(self.body_horizontal, block_rectangle)
+                    else:
+                        if abs(previous_block.x) >= self.cells - 1:
+                            previous_block.x = (-1) ** (previous_block.x > 0)
+                        elif abs(previous_block.y) >= self.cells - 1:
+                            previous_block.y = (-1) ** (previous_block.y > 0)
+                        elif abs(next_block.x) >= self.cells - 1:
+                            next_block.x = (-1) ** (next_block.x > 0)
+                        elif abs(next_block.y) >= self.cells - 1:
+                            next_block.y = (-1) ** (next_block.y > 0)
 
-                    if previous_block.x == -1 and next_block.y == -1 or previous_block.y == -1 and next_block.x == -1:
-                        surface.blit(self.body_bl, block_rectangle)
-                    elif previous_block.x == 1 and next_block.y == 1 or previous_block.y == 1 and next_block.x == 1:
-                        surface.blit(self.body_tr, block_rectangle)
-                    elif previous_block.x == -1 and next_block.y == 1 or previous_block.y == 1 and next_block.x == -1:
-                        surface.blit(self.body_tl, block_rectangle)
-                    elif previous_block.x == 1 and next_block.y == -1 or previous_block.y == -1 and next_block.x == 1:
-                        surface.blit(self.body_br, block_rectangle)
+                        if (previous_block.x == -1 and next_block.y == -1 or previous_block.y == -1 and
+                                next_block.x == -1):
+                            surface.blit(self.body_bl, block_rectangle)
+                        elif previous_block.x == 1 and next_block.y == 1 or previous_block.y == 1 and next_block.x == 1:
+                            surface.blit(self.body_tr, block_rectangle)
+                        elif (previous_block.x == -1 and next_block.y == 1 or previous_block.y == 1 and
+                              next_block.x == -1):
+                            surface.blit(self.body_tl, block_rectangle)
+                        elif (previous_block.x == 1 and next_block.y == -1 or previous_block.y == -1 and
+                              next_block.x == 1):
+                            surface.blit(self.body_br, block_rectangle)
 
     def move(self):
         if self.new_block:

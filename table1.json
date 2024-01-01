@@ -1,0 +1,10 @@
+{
+  "cells": 30,
+  "size_of_a_cell": 20,
+  "obstacles": [
+    {
+      "x": 10,
+      "y": 10
+    }
+  ]
+}

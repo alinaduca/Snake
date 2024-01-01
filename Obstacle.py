@@ -1,5 +1,6 @@
 import pygame
 from pygame.math import Vector2
+obstacle_color = (56, 74, 12)
 
 
 class Obstacle:
@@ -12,4 +13,7 @@ class Obstacle:
     def draw(self, size, surface):
         for pos in self.positions:
             obstacle_rectangle = pygame.Rect(int(pos.x * size), int(pos.y * size), size, size)
-            surface.blit(self.cactus, obstacle_rectangle)
+            if size == 30:
+                surface.blit(self.cactus, obstacle_rectangle)
+            else:
+                pygame.draw.rect(surface, obstacle_color, obstacle_rectangle)

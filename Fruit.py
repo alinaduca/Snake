@@ -1,6 +1,7 @@
 import pygame
 import random
 from pygame.math import Vector2
+fruit_color = (217, 1, 2)
 
 
 class Fruit:
@@ -14,7 +15,10 @@ class Fruit:
 
     def draw(self, size, surface):
         fruit_rectangle = pygame.Rect(int(self.pos.x * size), int(self.pos.y * size), size, size)
-        surface.blit(self.apple, fruit_rectangle)
+        if size == 30:
+            surface.blit(self.apple, fruit_rectangle)
+        else:
+            pygame.draw.rect(surface, fruit_color, fruit_rectangle)
 
     def randomize(self, snake_body, obstacles_pos):
         while True:

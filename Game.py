@@ -5,6 +5,7 @@ from Snake import Snake
 from Obstacle import Obstacle
 
 light_green = (175, 215, 70)
+grass_color = (167, 209, 61)
 dark_text_color = (56, 74, 12)
 light_text_color = (200, 200, 50)
 
@@ -71,7 +72,6 @@ class Game:
                     self.record = self.current_score
 
     def draw_darker_squares(self):
-        grass_color = (167, 209, 61)
         for row in range(self.size):
             if row % 2 == 0:
                 for column in range(self.size):

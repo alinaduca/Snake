@@ -24,6 +24,10 @@ def read_json(json_file):
 
 def init_table(dictionary):
     pygame.init()
+    if 'cells' not in dictionary:
+        dictionary['cells'] = 20
+    if 'size_of_a_cell' not in dictionary:
+        dictionary['size_of_a_cell'] = 30
     screen = pygame.display.set_mode((dictionary['cells'] * dictionary['size_of_a_cell'],
                                       dictionary['cells'] * dictionary['size_of_a_cell']))
     pygame.display.set_caption("Snake")
