@@ -42,7 +42,7 @@ Rulat în acest mod, interfața va fi următoarea:
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Bineînțeles că userul poate alege valori diferite pentru `cells`, `size_of_a_cell` sau pentru coordonatele obstacolelor, iar în cazul în care acesta va stabili pentru variabila `size_of_a_cell` o valoare diferită de 30, în locul imaginilor vor fi afișate dreptunghiuri având culoarea componentelor inițiale.
+Bineînțeles că utilizatorul poate alege valori diferite pentru `cells`, `size_of_a_cell` sau pentru coordonatele obstacolelor, iar în cazul în care acesta va stabili pentru variabila `size_of_a_cell` o valoare diferită de 30, în locul imaginilor vor fi afișate dreptunghiuri având culoarea componentelor inițiale.
 
 Un exemplu în acest sens poate fi urmărit rulând următoarea comandă în terminal:
 ```
@@ -81,11 +81,11 @@ Pentru al doilea caz discutat mai sus, am folosit următoarele culori:
 
 ## Regulile și modul de a juca 
 
-Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumulează prin mâncatul a cât mai multe fructe (reprezentate aici prin mere) de către șarpe. Cu cât șarpele mănâncă mai multe mere, cu atât corpul lui devine mai lung. Controlul șarpelui se realizează prin folosirea tastelor direcționale (sus, jos, stânga, dreapte).
+Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumulează prin mâncatul a cât mai multe fructe (reprezentate aici prin mere) de către șarpe. Cu cât șarpele mănâncă mai multe fructe, cu atât corpul lui devine mai lung. Controlul șarpelui se realizează prin folosirea tastelor direcționale (sus, jos, stânga, dreapte).
 
 O partidă de joc se termină în momentul în care:
 - șarpele se ciocnește de propriul corp
-- șarpele se ciocnește se un obstacol
+- șarpele se ciocnește de un obstacol
 
 Încheierea unei partide nu presupune și încheierea întregii sesiuni. Din momentul în care pornește scriptul, începe o sesiune care nu se termină decât prin a da click pe **X** în orice moment al jocului sau prin apăsarea tastei **y** atunci când utilizatorul ajunge la meniul din imaginea de mai jos:
 
@@ -103,7 +103,7 @@ O sesiune de joc va arăta într-un mod asemănător cu cea care poate fi vizual
 
 - [Segmentele din corpul șarpelui](https://rembound.com/files/creating-a-snake-game-tutorial-with-html5/snake-graphics.png) utilizate sunt cele disponibile în articolul [Creating A Snake Game Tutorial With HTML5](https://rembound.com/articles/creating-a-snake-game-tutorial-with-html5)
 - [Sunetul pentru mușcătură](https://pixabay.com/sound-effects/eating-sound-effect-36186/) este unul dintre [sunetele](https://pixabay.com/sound-effects/search/crunch/) de pe site-ul https://pixabay.com
-- [Imaginea pentru măr](https://drawnbyhislight.com/wp-content/uploads/2019/07/How-to-draw-an-apple-8.jpg) a fost preluată din articolul [How to draw an apple step by step](https://drawnbyhislight.com/how-to-draw-an-apple).
-- [Imaginea pentru obstacol (cactus)](https://www.shutterstock.com/ro/image-vector/cactus-icon-vector-logo-symbol-desert-1385104922) a fost preluată de pe pagina https://www.shutterstock.com.
-- [Tool-ul folosit pentru ștergerea background-ului](https://www.remove.bg/upload).
+- [Imaginea pentru măr](https://drawnbyhislight.com/wp-content/uploads/2019/07/How-to-draw-an-apple-8.jpg) a fost preluată din articolul [How to draw an apple step by step](https://drawnbyhislight.com/how-to-draw-an-apple)
+- [Imaginea pentru obstacol (cactus)](https://www.shutterstock.com/ro/image-vector/cactus-icon-vector-logo-symbol-desert-1385104922) a fost preluată de pe pagina https://www.shutterstock.com
 - [Asocierea imaginilor cu segmente din corpul șarpelui](https://youtu.be/QFvqStqPCRU?feature=shared&t=4766)
+- [Tool-ul folosit pentru ștergerea background-ului](https://www.remove.bg/upload)
