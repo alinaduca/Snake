@@ -85,7 +85,7 @@ Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumu
 
 O partidă de joc se termină în momentul în care:
 - șarpele se ciocnește de propriul corp
-- șarpele se ciocnește se un obstacol
+- șarpele se ciocnește de un obstacol
 
 Încheierea unei partide nu presupune și încheierea întregii sesiuni. Din momentul în care pornește scriptul, începe o sesiune care nu se termină decât prin a da click pe **X** în orice moment al jocului sau prin apăsarea tastei **y** atunci când utilizatorul ajunge la meniul din imaginea de mai jos:
 
