@@ -5,6 +5,12 @@ from Game import Game
 
 
 def read_json(json_file):
+    """
+    Citirea conținutului fișierului json.
+    :param json_file: Numele unui fișier json
+    :return: un dicționar cu conținutul fișierului json sau None, dacă
+    este inexistent, extensie incorectă sau fișier gol.
+    """
     try:
         with open(json_file, 'r') as file:
             json_data = json.load(file)
@@ -23,6 +29,10 @@ def read_json(json_file):
 
 
 def init_table(dictionary):
+    """
+    Inițializarea tablei de joc.
+    :param dictionary: Informații privind dimensiunea tablei și a coordonatelor obstacolelor.
+    """
     pygame.init()
     if 'cells' not in dictionary:
         dictionary['cells'] = 20
@@ -67,6 +77,11 @@ def init_table(dictionary):
 
 
 if __name__ == "__main__":
+    '''
+        Aici verific dacă s-a lansat comanda cu numărul corect de argumente,
+        în caz afirmativ urmând să citesc informațiile din fișierul json dat în linia de comandă
+        și să inițializez tabla de joc.
+    '''
     if len(sys.argv) < 2:
         print("Usage: python3 main.py <json_file>")
     else:
