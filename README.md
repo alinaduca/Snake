@@ -103,7 +103,7 @@ O sesiune de joc va arăta într-un mod asemănător cu cea care poate fi vizual
 
 - [Segmentele din corpul șarpelui](https://rembound.com/files/creating-a-snake-game-tutorial-with-html5/snake-graphics.png) utilizate sunt cele disponibile în articolul [Creating A Snake Game Tutorial With HTML5](https://rembound.com/articles/creating-a-snake-game-tutorial-with-html5)
 - [Sunetul pentru mușcătură](https://pixabay.com/sound-effects/eating-sound-effect-36186/) este unul dintre [sunetele](https://pixabay.com/sound-effects/search/crunch/) de pe site-ul https://pixabay.com
-- [Imaginea pentru măr](https://drawnbyhislight.com/wp-content/uploads/2019/07/How-to-draw-an-apple-8.jpg) a fost preluată din articolul [How to draw an apple step by step](https://drawnbyhislight.com/how-to-draw-an-apple).
-- [Imaginea pentru obstacol (cactus)](https://www.shutterstock.com/ro/image-vector/cactus-icon-vector-logo-symbol-desert-1385104922) a fost preluată de pe pagina https://www.shutterstock.com.
+- [Imaginea pentru măr](https://drawnbyhislight.com/wp-content/uploads/2019/07/How-to-draw-an-apple-8.jpg) a fost preluată din articolul [How to draw an apple step by step](https://drawnbyhislight.com/how-to-draw-an-apple)
+- [Imaginea pentru obstacol (cactus)](https://www.shutterstock.com/ro/image-vector/cactus-icon-vector-logo-symbol-desert-1385104922) a fost preluată de pe pagina https://www.shutterstock.com
 - [Asocierea imaginilor cu segmente din corpul șarpelui](https://youtu.be/QFvqStqPCRU?feature=shared&t=4766)
-- [Tool-ul folosit pentru ștergerea background-ului](https://www.remove.bg/upload).
+- [Tool-ul folosit pentru ștergerea background-ului](https://www.remove.bg/upload)
