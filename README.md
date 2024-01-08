@@ -81,7 +81,7 @@ Pentru al doilea caz discutat mai sus, am folosit următoarele culori:
 
 ## Regulile și modul de a juca 
 
-Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumulează prin mâncatul a cât mai multe fructe (reprezentate aici prin mere) de către șarpe. Cu cât șarpele mănâncă mai multe fructe, cu atât corpul lui devine mai lung. Controlul șarpelui se realizează prin folosirea tastelor direcționale (sus, jos, stânga, dreapte).
+Scopul jocului constă în acumulatea a cât mai multe puncte. Punctele se acumulează prin mâncatul a cât mai multe fructe (reprezentate aici prin mere) de către șarpe. Cu cât șarpele mănâncă mai multe fructe, cu atât corpul lui devine mai lung. Controlul șarpelui se realizează prin folosirea tastelor direcționale (sus, jos, stânga, dreapta).
 
 O partidă de joc se termină în momentul în care:
 - șarpele se ciocnește de propriul corp
