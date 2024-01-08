@@ -97,7 +97,7 @@ Dacă, la acest moment, utilizatorul apasă tasta **n**, atunci va fi pornită o
 
 O sesiune de joc va arăta într-un mod asemănător cu cea care poate fi vizualizată în GIF-ul de mai jos:
 
-[![Watch the video](snake1.gif)](snake.mp4)
+[![Watch the video](Images/snake1.gif)](Images/snake.mp4)
 
 ## Resurse și materiale
 
