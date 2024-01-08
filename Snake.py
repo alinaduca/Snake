@@ -5,11 +5,11 @@ snake_color = (106, 158, 104)
 
 class Snake:
     def __init__(self, cells):
-        """
+        '''
         Inițializarea șarpelui: pozițoa inițială pe tabla de joc, flag-uri, direcția, sunetul pentru mușcătură și
         imaginile pentru toate segmentele posibile din corp.
         :param cells: Numărul de celule
-        """
+        '''
         self.body = [Vector2(14, 10), Vector2(15, 10), Vector2(16, 10)]
         self.direction = Vector2(0, 0)
         self.cells = cells
@@ -39,11 +39,11 @@ class Snake:
         self.eating_sound = pygame.mixer.Sound('Sounds/eating.mp3')
 
     def draw(self, size, surface):
-        """
+        '''
         Desenarea șarpelui pe tabla de joc.
         :param size: Dimensiunea unui block
         :param surface: Display-ul pygame
-        """
+        '''
         if size != 30:
             for block in self.body:
                 x_pos = int(block.x * size)
@@ -91,9 +91,9 @@ class Snake:
                             surface.blit(self.body_br, block_rectangle)
 
     def move(self):
-        """
+        '''
         Logica pentru înaintarea/mutarea șarpelui pe tabla de joc.
-        """
+        '''
         if self.new_block:
             body_copy = self.body[:]
             self.new_block = False
@@ -111,10 +111,10 @@ class Snake:
         self.body = body_copy[:]
 
     def change_direction(self, new_direction):
-        """
+        '''
         Schimbarea direcției șarpelui pe tabla de joc.
         :param new_direction: Noua direcție de mișcare a șarpelui.
-        """
+        '''
         self.is_moving = True
         old_direction = self.direction
         match new_direction:
@@ -132,16 +132,16 @@ class Snake:
                     self.direction = Vector2(-1, 0)
 
     def add_block(self):
-        """
+        '''
         Adăugarea unui block nou la corpul șarpelui.
         :return:
-        """
+        '''
         self.new_block = True
 
     def update_head_graphics(self):
-        """
+        '''
         Schimbarea imaginii pentru capul șarpelui, în funcție de noua direcție.
-        """
+        '''
         current_direction = self.body[0] - self.body[1]
         if current_direction == Vector2(0, 1):
             self.head = self.head_down
@@ -153,9 +153,9 @@ class Snake:
             self.head = self.head_left
 
     def update_tail_graphics(self):
-        """
+        '''
         Schimbarea imaginii pentru coada șarpelui, în funcție de noua direcție.
-        """
+        '''
         current_direction = self.body[-2] - self.body[-1]
         if current_direction == Vector2(0, 1):
             self.tail = self.tail_down
@@ -167,18 +167,18 @@ class Snake:
             self.tail = self.tail_left
 
     def reset(self):
-        """
+        '''
         Resetarea șarpelui: dimensiunea inițială, poziția și direcția. Resetarea flag-urilor.
         :return:
-        """
+        '''
         self.body = [Vector2(14, 10), Vector2(15, 10), Vector2(16, 10)]
         self.direction = Vector2(0, 0)
         self.is_moving = False
         self.new_block = False
 
     def get_is_moving(self):
-        """
+        '''
         Getter pentru flagul is_moving
         :return: valoarea flagului is_moving (True sau False)
-        """
+        '''
         return self.is_moving

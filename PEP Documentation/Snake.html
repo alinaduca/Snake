@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Snake</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Snake</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:d%3A%5Csnake%5Csnake.py">d:\snake\snake.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="Snake.html#Snake">Snake</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Snake">class <strong>Snake</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Snake">Snake</a>(cells)<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Snake-__init__"><strong>__init__</strong></a>(self, cells)</dt><dd><span class="code">Inițializarea&nbsp;șarpelui:&nbsp;pozițoa&nbsp;inițială&nbsp;pe&nbsp;tabla&nbsp;de&nbsp;joc,&nbsp;flag-uri,&nbsp;direcția,&nbsp;sunetul&nbsp;pentru&nbsp;mușcătură&nbsp;și<br>
+imaginile&nbsp;pentru&nbsp;toate&nbsp;segmentele&nbsp;posibile&nbsp;din&nbsp;corp.<br>
+:param&nbsp;cells:&nbsp;Numărul&nbsp;de&nbsp;celule</span></dd></dl>
+
+<dl><dt><a name="Snake-add_block"><strong>add_block</strong></a>(self)</dt><dd><span class="code">Adăugarea&nbsp;unui&nbsp;block&nbsp;nou&nbsp;la&nbsp;corpul&nbsp;șarpelui.<br>
+:return:</span></dd></dl>
+
+<dl><dt><a name="Snake-change_direction"><strong>change_direction</strong></a>(self, new_direction)</dt><dd><span class="code">Schimbarea&nbsp;direcției&nbsp;șarpelui&nbsp;pe&nbsp;tabla&nbsp;de&nbsp;joc.<br>
+:param&nbsp;new_direction:&nbsp;Noua&nbsp;direcție&nbsp;de&nbsp;mișcare&nbsp;a&nbsp;șarpelui.</span></dd></dl>
+
+<dl><dt><a name="Snake-draw"><strong>draw</strong></a>(self, size, surface)</dt><dd><span class="code">Desenarea&nbsp;șarpelui&nbsp;pe&nbsp;tabla&nbsp;de&nbsp;joc.<br>
+:param&nbsp;size:&nbsp;Dimensiunea&nbsp;unui&nbsp;block<br>
+:param&nbsp;surface:&nbsp;Display-ul&nbsp;pygame</span></dd></dl>
+
+<dl><dt><a name="Snake-get_is_moving"><strong>get_is_moving</strong></a>(self)</dt><dd><span class="code">Getter&nbsp;pentru&nbsp;flagul&nbsp;is_moving<br>
+:return:&nbsp;valoarea&nbsp;flagului&nbsp;is_moving&nbsp;(True&nbsp;sau&nbsp;False)</span></dd></dl>
+
+<dl><dt><a name="Snake-move"><strong>move</strong></a>(self)</dt><dd><span class="code">Logica&nbsp;pentru&nbsp;înaintarea/mutarea&nbsp;șarpelui&nbsp;pe&nbsp;tabla&nbsp;de&nbsp;joc.</span></dd></dl>
+
+<dl><dt><a name="Snake-reset"><strong>reset</strong></a>(self)</dt><dd><span class="code">Resetarea&nbsp;șarpelui:&nbsp;dimensiunea&nbsp;inițială,&nbsp;poziția&nbsp;și&nbsp;direcția.&nbsp;Resetarea&nbsp;flag-urilor.<br>
+:return:</span></dd></dl>
+
+<dl><dt><a name="Snake-update_head_graphics"><strong>update_head_graphics</strong></a>(self)</dt><dd><span class="code">Schimbarea&nbsp;imaginii&nbsp;pentru&nbsp;capul&nbsp;șarpelui,&nbsp;în&nbsp;funcție&nbsp;de&nbsp;noua&nbsp;direcție.</span></dd></dl>
+
+<dl><dt><a name="Snake-update_tail_graphics"><strong>update_tail_graphics</strong></a>(self)</dt><dd><span class="code">Schimbarea&nbsp;imaginii&nbsp;pentru&nbsp;coada&nbsp;șarpelui,&nbsp;în&nbsp;funcție&nbsp;de&nbsp;noua&nbsp;direcție.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>snake_color</strong> = (106, 158, 104)</td></tr></table>
+</body></html>

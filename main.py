@@ -1,16 +1,17 @@
 import pygame
+import pydoc
 import json
 import sys
 from Game import Game
 
 
 def read_json(json_file):
-    """
+    '''
     Citirea conținutului fișierului json.
     :param json_file: Numele unui fișier json
     :return: un dicționar cu conținutul fișierului json sau None, dacă
     este inexistent, extensie incorectă sau fișier gol.
-    """
+    '''
     try:
         with open(json_file, 'r') as file:
             json_data = json.load(file)
@@ -29,10 +30,10 @@ def read_json(json_file):
 
 
 def init_table(dictionary):
-    """
+    '''
     Inițializarea tablei de joc.
     :param dictionary: Informații privind dimensiunea tablei și a coordonatelor obstacolelor.
-    """
+    '''
     pygame.init()
     if 'cells' not in dictionary:
         dictionary['cells'] = 20
@@ -88,3 +89,8 @@ if __name__ == "__main__":
         data = read_json(sys.argv[1])
         if data is not None:
             init_table(data)
+
+pydoc.writedoc('main')
+pydoc.writedoc('Fruit')
+pydoc.writedoc('Snake')
+pydoc.writedoc('Obstacle')
