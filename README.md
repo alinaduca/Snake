@@ -107,3 +107,4 @@ O sesiune de joc va arăta într-un mod asemănător cu cea care poate fi vizual
 - [Imaginea pentru obstacol (cactus)](https://www.shutterstock.com/ro/image-vector/cactus-icon-vector-logo-symbol-desert-1385104922) a fost preluată de pe pagina https://www.shutterstock.com
 - [Asocierea imaginilor cu segmente din corpul șarpelui](https://youtu.be/QFvqStqPCRU?feature=shared&t=4766)
 - [Tool-ul folosit pentru ștergerea background-ului](https://www.remove.bg/upload)
+- [Imagine inițială - Resursa Google](https://www.google.com/search?sca_esv=594178564&sxsrf=AM9HkKnU-8SFKJWQW_BTi1AboGZWxOsyBQ:1703751692424&q=google+snake+game+-+snake+picture&tbm=isch&source=lnms&sa=X&ved=2ahUKEwip-KXT2bGDAxWy2QIHHfVyACkQ0pQJegQIDBAB&biw=1536&bih=695&dpr=1.25#imgrc=Xobm1bjxdip3iM)
